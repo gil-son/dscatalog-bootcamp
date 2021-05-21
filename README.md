@@ -17,9 +17,9 @@ help students and programming professionals to enter or re-enter their careers.<
 <p>The estimate is up to 12 weeks to terminate. But if necessary, you can increase the deadline. Some stages:</p>
 
 <ul>
-	<li>* [x] Introduction</li>
-	<li>* [ ] CRUD</li>
-	<li>* [ ] Automated testing</li>
+	<li>* [x] <a href="">Introduction<a/></li>
+	<li>* [ ] <a href="">CRUD<a/></li>
+	<li>* [ ] <a href="">Automated testing<a/></li>
 </ul>
 
 
