@@ -17,9 +17,9 @@ help students and programming professionals to enter or re-enter their careers.<
 <p>The estimate is up to 12 weeks to terminate. But if necessary, you can increase the deadline. Some stages:</p>
 
 <ul>
-	<li>* [x] Introduction</li>
-	<li>* [ ] CRUD</li>
-	<li>* [ ] Automated testing</li>
+	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/00.%20INTRODUCTION.md">Introduction<a/></li>
+	<li>* [ ] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/01.%20CRUD.md">CRUD<a/></li>
+	<li>* [ ] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/02.%20Automated%20testing.md">Automated testing<a/></li>
 </ul>
 
 
