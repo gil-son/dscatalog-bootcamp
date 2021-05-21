@@ -7,7 +7,7 @@ help students and programming professionals to enter or re-enter their careers.<
 
 <p>That event improve abilities required to an Full Stack Developer build a system with a quality architecture!</p>
 
-## Event
+## Bootcamp
 
 <p>The estimate is up to 12 weeks to terminate. But if necessary, you can increase the deadline. Some stages:</p>
 
