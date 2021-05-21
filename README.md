@@ -2,7 +2,12 @@
 
 ## Introduction
 
-<p> DSCatalog is a Bootcamp promoted by <a href="https://devsuperior.com.br/"> DevSuperior <a/> which aims to
+<p> The DS Catalog is a project to catalog electronic products with access control between users and administrators.</p>
+
+<p>The project consists of several steps and analyzes to increase the developer's understanding and thus be able to develop smart, optimized, safe and with good practices!</p>
+
+
+<p> The Bootcamp promoted by <a href="https://devsuperior.com.br/"> DevSuperior <a/> which aims to
 help students and programming professionals to enter or re-enter their careers.</p>
 
 <p>That event improve abilities required to an Full Stack Developer build a system with a quality architecture!</p>
@@ -12,7 +17,7 @@ help students and programming professionals to enter or re-enter their careers.<
 <p>The estimate is up to 12 weeks to terminate. But if necessary, you can increase the deadline. Some stages:</p>
 
 <ul>
-	<li>* [x] Introducion</li>
+	<li>* [x] Introduction</li>
 	<li>* [ ] CRUD</li>
 	<li>* [ ] Automated testing</li>
 </ul>
