@@ -1,6 +1,7 @@
 package com.devsuperior.dscatalog.services;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -10,6 +11,9 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,6 +52,26 @@ public class CategoryService {
 		 
 		 return listDTO;
 	}
+	
+	
+	@Transactional(readOnly = true)
+	public Page<CategoryDTO> findAllPaged(PageRequest pageRequest){
+		// Mode 1 - get Category converted to Page
+		 Page<Category> page = repository.findAll(pageRequest); 
+		
+		//Mode 2 - Convert list to Page - But don't use because the set is only on moment you create
+		 // Then if modify the params on endpoint, don't will modify
+		//List<Category> list = repository.findAll();
+	    // Page<Category> page = new PageImpl<Category>(list, pageRequest, list.size());
+		
+	   
+		// Convert Category to Category DTO
+		 return page.map(x -> new CategoryDTO(x));
+	}
+	
+	
+	
+	
 	
 	
 	@Transactional(readOnly = true)
