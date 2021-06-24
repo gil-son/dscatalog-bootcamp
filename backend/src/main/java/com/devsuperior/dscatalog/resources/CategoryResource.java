@@ -1,11 +1,12 @@
 package com.devsuperior.dscatalog.resources;
 
 import java.net.URI;
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +39,7 @@ public class CategoryResource {
 	}
 	*/
 	
-	
+	/*
 	@GetMapping
 	public ResponseEntity<Page<CategoryDTO>> findAll(
 			
@@ -54,8 +55,14 @@ public class CategoryResource {
 		Page<CategoryDTO> getPage = service.findAllPaged(pageRequest);
 		return ResponseEntity.ok().body(getPage);
 	}
+	*/
 	
-	
+	@GetMapping
+	public ResponseEntity<Page<CategoryDTO>> findAll(Pageable pageable){
+		
+		Page<CategoryDTO> getPage = service.findAllPaged(pageable);
+		return ResponseEntity.ok().body(getPage);
+	}
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<CategoryDTO> findById(@PathVariable Long id){		

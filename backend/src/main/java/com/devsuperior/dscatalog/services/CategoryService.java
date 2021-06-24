@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dscatalog.dto.CategoryDTO;
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.repositories.CategoryRepository;
+import org.springframework.data.domain.Pageable;
 import com.devsuperior.dscatalog.services.exceptions.DatabaseException;
 import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 
@@ -55,9 +56,9 @@ public class CategoryService {
 	
 	
 	@Transactional(readOnly = true)
-	public Page<CategoryDTO> findAllPaged(PageRequest pageRequest){
+	public Page<CategoryDTO> findAllPaged(Pageable pageable){ // PageRequest pageRequest
 		// Mode 1 - get Category converted to Page
-		 Page<Category> page = repository.findAll(pageRequest); 
+		 Page<Category> page = repository.findAll(pageable); 
 		
 		//Mode 2 - Convert list to Page - But don't use because the set is only on moment you create
 		 // Then if modify the params on endpoint, don't will modify

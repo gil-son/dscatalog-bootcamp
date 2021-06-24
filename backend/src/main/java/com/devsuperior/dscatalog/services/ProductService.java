@@ -1,7 +1,7 @@
 package com.devsuperior.dscatalog.services;
 
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,9 +62,9 @@ public class ProductService {
 	
 	
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAllPaged(PageRequest pageRequest){
+	public Page<ProductDTO> findAllPaged(Pageable pageable){
 		// Mode 1 - get Product converted to Page
-		 Page<Product> page = repository.findAll(pageRequest); 
+		 Page<Product> page = repository.findAll(pageable); 
 		
 		//Mode 2 - Convert list to Page - But don't use because the set is only on moment you create
 		 // Then if modify the params on endpoint, don't will modify
