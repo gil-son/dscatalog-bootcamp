@@ -12,7 +12,7 @@ import com.devsuperior.dscatalog.repositories.ProductRepository;
 
 @DataJpaTest
 public class ProductRepositoryTests {
-
+	
 	@Autowired
 	public ProductRepository repository;
 		
