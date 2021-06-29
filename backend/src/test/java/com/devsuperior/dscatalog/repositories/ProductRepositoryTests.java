@@ -56,9 +56,27 @@ public class ProductRepositoryTests {
 	public void deleteShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExist() {
 		
 		Assertions.assertThrows(EmptyResultDataAccessException.class, () -> {
-			repository.deleteById(nonExistingId);
+			repository.deleteById(nonExistingId+1);
+			
 		});
 		
+	}
+	
+	@Test
+	public void findByIdShouldReturnNonEmptyOptinalWhenIdExists() {
+
+		Optional<Product> result = repository.findById(existingId+1);
+		
+		Assertions.assertTrue(result.isPresent());
+	}
+	
+	@Test
+	public void findByIdShouldReturnEmptyOptinalWhenIdDoesNotExists() {
+		repository.deleteById(existingId+1);
+		Optional<Product> result = repository.findById(existingId+1);
+		
+		Assertions.assertFalse(result.isPresent());
+		Assertions.assertTrue(result.isEmpty());
 	}
 	
 	
