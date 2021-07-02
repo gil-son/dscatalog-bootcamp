@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.devsuperior.dscatalog.entities.Product;
+import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.devsuperior.dscatalog.tests.Factory;
 
 
@@ -53,9 +54,9 @@ public class ProductRepositoryTests {
 	
 	
 	@Test
-	public void deleteShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExist() {
+	public void deleteShouldThrowResourceNotFoundExceptionWhenIdDoesNotExist() {
 		
-		Assertions.assertThrows(EmptyResultDataAccessException.class, () -> {
+		Assertions.assertThrows(ResourceNotFoundException.class, () -> {
 			repository.deleteById(nonExistingId+1);
 			
 		});
