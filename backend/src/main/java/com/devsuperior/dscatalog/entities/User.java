@@ -2,19 +2,36 @@ package com.devsuperior.dscatalog.entities;
 
 import java.util.Objects;
 import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 import java.io.Serializable;
 import java.util.HashSet;
 
-
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String firsttName;
+	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
 	
+	@ManyToMany
+	@JoinTable(name = "tb_user_role",
+			  joinColumns = @JoinColumn(name = "user_id"),
+			  inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 	
 	public User() {}
@@ -23,9 +40,9 @@ public class User implements Serializable{
 		return id;
 	}
 
-	public User(Long id, String firsttName, String lastName, String email, String password) {
+	public User(Long id, String firstName, String lastName, String email, String password) {
 		this.id = id;
-		this.firsttName = firsttName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
@@ -36,11 +53,11 @@ public class User implements Serializable{
 	}
 
 	public String getFirsttName() {
-		return firsttName;
+		return firstName;
 	}
 
-	public void setFirsttName(String firsttName) {
-		this.firsttName = firsttName;
+	public void setFirsttName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
