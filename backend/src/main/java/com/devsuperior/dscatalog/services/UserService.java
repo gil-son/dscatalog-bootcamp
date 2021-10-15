@@ -18,16 +18,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dscatalog.dto.RoleDTO;
 import com.devsuperior.dscatalog.dto.UserDTO;
+import com.devsuperior.dscatalog.dto.UserInsertDTO;
 import com.devsuperior.dscatalog.entities.Role;
 import com.devsuperior.dscatalog.entities.User;
 import com.devsuperior.dscatalog.repositories.RoleRepository;
 import com.devsuperior.dscatalog.repositories.UserRepository;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.devsuperior.dscatalog.services.exceptions.DatabaseException;
 import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Autowired
 	private UserRepository repository;
@@ -56,15 +62,6 @@ public class UserService {
 	}
 	
 	
-	
-	@Transactional
-	public UserDTO insert(UserDTO dto) {
-		User entity = new User();
-		entity.setFirstName(dto.getFirstName());
-		entity = repository.save(entity);
-		return new UserDTO(entity);
-	}
-
 	@Transactional
 	public UserDTO update(Long id, UserDTO dto) {
 		try {
@@ -89,6 +86,15 @@ public class UserService {
 			throw new DatabaseException("Integrity Violation");
 		}
 
+	}
+	
+	@Transactional
+	public UserDTO insert(UserInsertDTO dto) {
+		User entity = new User();
+		copyDtoToEntity(dto, entity);
+		entity.setPassword(passwordEncoder.encode(dto.getPassword()));
+		entity = repository.save(entity);
+		return new UserDTO(entity);
 	}
 	
 	
