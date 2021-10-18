@@ -54,7 +54,6 @@ public class CategoryService {
 		 return listDTO;
 	}
 	
-	
 	@Transactional(readOnly = true)
 	public Page<CategoryDTO> findAllPaged(Pageable pageable){ // PageRequest pageRequest
 		// Mode 1 - get Category converted to Page
@@ -69,11 +68,6 @@ public class CategoryService {
 		// Convert Category to Category DTO
 		 return page.map(x -> new CategoryDTO(x));
 	}
-	
-	
-	
-	
-	
 	
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
@@ -106,7 +100,6 @@ public class CategoryService {
 		}
 		
 	}
-
 
 	public void delete(Long id) {
 		try {
