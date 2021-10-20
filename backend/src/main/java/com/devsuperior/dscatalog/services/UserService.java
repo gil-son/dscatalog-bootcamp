@@ -76,6 +76,8 @@ public class UserService {
 		try {
 			User entity = repository.getOne(id);
 			entity.setFirstName(dto.getFirstName());
+			entity.setLastName(dto.getLastName());
+			entity.setEmail(dto.getEmail());
 			entity = repository.save(entity);
 			return new UserDTO(entity);
 		}catch(EntityNotFoundException e) {
