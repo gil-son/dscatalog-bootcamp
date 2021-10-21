@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.entities.Product;
@@ -20,10 +21,19 @@ public class ProductDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	
+	@NotBlank(message = "Required field")
+	@Size(min = 5, max = 50, message = "Fill the field with value between 3 and 50 characters")
 	private String name;
+	
+	@NotBlank(message = "Required field")
 	private String description;
+	
+	@Positive(message = "The value must be positive")
 	private Double price;
 	private String imgUrl;
+	 
+	@PastOrPresent(message = "The date of product  no must be future")
 	private Instant date; //moment
 
 	private List<CategoryDTO> categories = new ArrayList<>();

@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 import com.devsuperior.dscatalog.entities.Role;
 import com.devsuperior.dscatalog.entities.User;
 
@@ -12,8 +16,15 @@ public class UserDTO implements Serializable{
 	
 	
 	private Long id;
+	
+	@NotBlank(message = "Required field")
 	private String firstName;
+	
+	@NotBlank(message = "Required field")
 	private String lastName;
+	
+	@Email(message = "Type a valid email")
+	@NotBlank(message = "Required field")
 	private String email;
 	// private String password; // Don't let password pass on DTO
 	
