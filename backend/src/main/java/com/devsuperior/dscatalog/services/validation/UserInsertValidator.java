@@ -16,6 +16,9 @@ import com.devsuperior.dscatalog.resources.exceptions.FieldMessage;
 public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {
 	
 	
+	@Autowired
+	UserRepository userRepository;
+	
 	@Override // Logic used when initialize the object
 	public void initialize(UserInsertValid ann) {
 	}
@@ -27,12 +30,20 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 		
 		// Put your validation tests here, adding FieldMessage objects to the list
 		
+		User user = userRepository.findByEmail(dto.getEmail());
+		
+		if(user != null) {
+			list.add(new FieldMessage("email","The email already exist!"));
+		}
+		
+		
+		
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName())
-					.addConstraintViolation();
+					.addConstraintViolation(); // Inserted errors
 		}
-		return list.isEmpty();
+		return list.isEmpty(); // erro(s) > 0 = true
 	}
 }
 
