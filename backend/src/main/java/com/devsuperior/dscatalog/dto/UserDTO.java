@@ -11,6 +11,7 @@ import javax.validation.constraints.NotEmpty;
 import com.devsuperior.dscatalog.entities.Role;
 import com.devsuperior.dscatalog.entities.User;
 
+
 public class UserDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
