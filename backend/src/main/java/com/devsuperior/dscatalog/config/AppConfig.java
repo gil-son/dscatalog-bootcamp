@@ -6,6 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+
 @Configuration
 public class AppConfig {
 
@@ -14,9 +15,7 @@ public class AppConfig {
 		return new BCryptPasswordEncoder(); // return a instance
 	}
 	
-	
-	// Objects can access a token JWT: ready, write, create, etc
-	
+		
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
