@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/**"); // ignore any endpoint and pass between actuator (library from Spring OAuth)
+		web.ignoring().antMatchers("/actuator/**"); // ignore any endpoint and pass between actuator (library from Spring OAuth)
 	}
 
 	@Override // it is explicit, because, it will turn AuthenticationManager a Bean (Component) in system

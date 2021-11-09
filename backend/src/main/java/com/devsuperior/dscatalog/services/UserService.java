@@ -26,6 +26,7 @@ import com.devsuperior.dscatalog.entities.Role;
 import com.devsuperior.dscatalog.repositories.RoleRepository;
 import com.devsuperior.dscatalog.repositories.UserRepository;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -144,9 +145,6 @@ public class UserService implements UserDetailsService{
 		logger.info("User found: "+username);
 		return user;
 	}
-	
-	
-	
 	
 }
 
