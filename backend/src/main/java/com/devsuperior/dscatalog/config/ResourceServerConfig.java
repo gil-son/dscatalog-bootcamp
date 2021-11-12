@@ -1,7 +1,10 @@
 package com.devsuperior.dscatalog.config;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -14,12 +17,17 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Autowired
+	private Environment env; // Environment of execute from application. Can access many variables
+	
+	@Autowired
 	private JwtTokenStore tokenStore;
 	
 	
 	// ROUTES
 	
-	private static final String[] PUBLIC = {"/oauth/token"}; // route to login, products or categories
+	// something/** = all after something is access
+	
+	private static final String[] PUBLIC = {"/oauth/token", "/h2-console/**"}; // route to login, products or categories
 	
 	private static final String[] OPERATOR_OR_ADMIN = {"/products/**", "/categories/**"};	 //	hierarchical access of users and products or categories cadastre							
 											
@@ -32,6 +40,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
+		
+		// Access H2
+		if(Arrays.asList(env.getActiveProfiles()).contains("test")){// If actives profiles contains test profiles
+			http.headers().frameOptions().disable(); // release the frames
+		}
+		
+		
 		http.authorizeRequests()
 		.antMatchers(PUBLIC).permitAll() // Permit all route PUBLIC dont required login
 		.antMatchers(HttpMethod.GET, OPERATOR_OR_ADMIN).permitAll() // Permit all route with method get and OPERATOR_OR_ADMIN
