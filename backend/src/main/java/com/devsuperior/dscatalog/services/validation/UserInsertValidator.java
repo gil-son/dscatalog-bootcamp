@@ -13,7 +13,7 @@ import com.devsuperior.dscatalog.entities.User;
 import com.devsuperior.dscatalog.repositories.UserRepository;
 import com.devsuperior.dscatalog.resources.exceptions.FieldMessage;
 
-public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {
+public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> { // UserInsertDTO will receive the annotation from UserInsertValid. But required the annotation @InsertValid on UserDTO, because have an extends 
 	
 	
 	@Autowired
@@ -38,12 +38,13 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 		
 		
 		
+		// for each error, is inserid in beans Validation
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName())
 					.addConstraintViolation(); // Inserted errors
 		}
-		return list.isEmpty(); // erro(s) > 0 = true
+		return list.isEmpty(); // erro(s) > 0 = false
 	}
 }
 

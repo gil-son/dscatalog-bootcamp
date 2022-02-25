@@ -2,6 +2,8 @@ package com.devsuperior.dscatalog.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.FetchType;
+
 import com.devsuperior.dscatalog.entities.Role;
 
 public class RoleDTO implements Serializable{
@@ -18,7 +20,7 @@ public class RoleDTO implements Serializable{
 		this.authority = authority;
 	}
 	
-	public RoleDTO(Role entity) {
+	public RoleDTO(Role entity) { // the FetchType.EAGER in the class User get the Role. Is used in UserDTO
 		id = entity.getId();
 		authority = entity.getAuthority();
 	}

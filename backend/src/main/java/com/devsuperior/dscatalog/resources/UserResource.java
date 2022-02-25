@@ -57,7 +57,7 @@ public class UserResource {
 	
 	
 	@PostMapping
-	public ResponseEntity<UserDTO> insert(@RequestBody @Valid UserInsertDTO dto){
+	public ResponseEntity<UserDTO> insert(@RequestBody @Valid UserInsertDTO dto){ // Case exist an error in Validate, it is blocked here
 		UserDTO newDTO = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(newDTO.getId()).toUri();
@@ -65,7 +65,7 @@ public class UserResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO dto){
+	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO dto){ // Case exist an error in Validate, it is blocked here
 		UserDTO newDto = service.update(id, dto);
 		return ResponseEntity.ok().body(newDto);
 	}

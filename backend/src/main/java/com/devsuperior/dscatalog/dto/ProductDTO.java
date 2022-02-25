@@ -23,7 +23,7 @@ public class ProductDTO implements Serializable{
 	private Long id;
 	
 	@NotBlank(message = "Required field")
-	@Size(min = 5, max = 50, message = "Fill the field with value between 3 and 50 characters")
+	@Size(min = 3, max = 50, message = "Fill the field with a minimum of 3 and a maximum of 50 characters")
 	private String name;
 	
 	@NotBlank(message = "Required field")

@@ -38,7 +38,7 @@ public class User implements UserDetails, Serializable{
 	private String email;
 	private String password;
 	
-	@ManyToMany(fetch = FetchType.EAGER) // When accessing the User, he will forcibly access the Role(s). Spring Security will require it
+	@ManyToMany(fetch = FetchType.EAGER) // When accessing the User, FetchType.EAGER will forcibly/get access the Role(s), this will build json too. Spring Security will require it
 	@JoinTable(name = "tb_user_role",
 			  joinColumns = @JoinColumn(name = "user_id"),
 			  inverseJoinColumns = @JoinColumn(name = "role_id"))

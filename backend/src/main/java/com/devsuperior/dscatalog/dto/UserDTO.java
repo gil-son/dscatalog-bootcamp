@@ -41,7 +41,7 @@ public class UserDTO implements Serializable{
 		this.email = email;
 	}
 
-	public UserDTO(User entity) {
+	public UserDTO(User entity) { // the FetchType.EAGER in the class User get the Role. The RoleDTO can be used with UserDTO
 		id = entity.getId();
 		firstName = entity.getFirstName();
 		lastName = entity.getLastName();

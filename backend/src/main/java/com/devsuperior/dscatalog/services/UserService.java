@@ -83,7 +83,7 @@ public class UserService implements UserDetailsService{
 	@Transactional
 	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
-			User entity = repository.getOne(id);
+			User entity = repository.getOne(id); // getOne() don`t access the database, just instance a monitored entity of the JPA
 			entity.setFirstName(dto.getFirstName());
 			entity.setLastName(dto.getLastName());
 			entity.setEmail(dto.getEmail());
