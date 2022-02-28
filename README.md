@@ -168,6 +168,12 @@ of the data.
 </p>
 
 
+## Resource
+
+<ul>
+  <li><a href="https://github.com/devsuperior/dscatalog-resources/tree/master/backend">dscatalog-resources</a></li>
+</ul>
+
 
 ## Source
 
