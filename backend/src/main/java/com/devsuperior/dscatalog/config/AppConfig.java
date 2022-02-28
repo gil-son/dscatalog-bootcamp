@@ -20,7 +20,8 @@ public class AppConfig {
 		return new BCryptPasswordEncoder(); // return a instance
 	}
 	
-		
+	
+	// JWT configure
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();

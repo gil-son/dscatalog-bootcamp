@@ -19,8 +19,8 @@ public class JwtTokenEnhancer implements TokenEnhancer {
 	@Autowired
 	UserRepository userRepository;
 	
-	// add object in Token
 	
+	// add object in Token JWT
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
 		User user = userRepository.findByEmail(authentication.getName()); // In that project getName() is the email
