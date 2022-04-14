@@ -20,7 +20,7 @@ help students and programming professionals to enter or re-enter their careers.<
 	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/00.%20INTRODUCTION.md">Introduction<a/></li>
 	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/01.%20CRUD.md">CRUD<a/></li>
 	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/02.%20Automated%20testing.md">Automated testing<a/></li>
-	<li>* [ ] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/03.%20Validation%20and%20security.md">Validation and security<a/></li>
+	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/03.%20Validation%20and%20security.md">Validation and security<a/></li>
 		
 		
 </ul>
