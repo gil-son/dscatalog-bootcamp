@@ -19,7 +19,7 @@ help students and programming professionals to enter or re-enter their careers.<
 	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/01.%20CRUD.md">CRUD<a/></li>
 	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/02.%20Automated%20testing.md">Automated testing<a/></li>
 	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/03.%20Validation%20and%20security.md">Validation and security<a/></li>
-	<li>* [ ] <a href="#">Domain and ORM, authorizations<a/></li>
+	<li>* [x] <a href="https://github.com/gil-son/dscatalog-bootcamp/blob/main/info/04.%20Domain%20and%20ORM%2C%20authorizations.md">Domain and ORM, authorizations<a/></li>
 	<li>* [ ] <a href="#">Database query<a/></li>
 	<li>* [ ] <a href="#">Docker, deployment, CI/CD<a/></li>
 </ul>
